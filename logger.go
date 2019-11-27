@@ -24,7 +24,7 @@ var LogMessage = map[int]string{
 
 // Returns a new customized instance of a logrus.Logger
 func Instance() *log.Entry {
-	var logger = log.New()
+	logger := log.New()
 	// Log as JSON instead of the default ASCII formatter.
 	logger.SetFormatter(&log.JSONFormatter{})
 
@@ -33,7 +33,7 @@ func Instance() *log.Entry {
 	logger.SetOutput(os.Stdout)
 
 	// Only log the warning severity or above.
-	logger.SetLevel(log.WarnLevel)
+	logger.SetLevel(log.DebugLevel)
 
 	return logger.WithFields(log.Fields{
 		"common": "this is a common field",
